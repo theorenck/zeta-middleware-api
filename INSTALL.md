@@ -22,7 +22,7 @@ npm install [git-url] --save
 npm link
 
 # Link in project to local module
-npm link zeta-middleware-api-v1
+npm link zeta-middleware-api
 ```
 
 **Note:** You should publish it before you use it publicly.
@@ -34,15 +34,15 @@ npm link zeta-middleware-api-v1
 npm publish
 
 # Install from npm
-npm install zeta-middleware-api-v1 --save
+npm install zeta-middleware-api --save
 ```
 
 ## Bower
 
 ```bash
 # Register with bower
-bower register zeta-middleware-api-v1 [git-url]
+bower register zeta-middleware-api [git-url]
 
 # Install from bower
-bower install zeta-middleware-api-v1 --save
+bower install zeta-middleware-api --save
 ```

@@ -1,14 +1,14 @@
-# Zeta Middleware API V1
+# Zeta Middleware API
 
-Browser and node module for making API requests against [Zeta Middleware API V1](http://{host}/api).
+Browser and node module for making API requests against [Zeta Middleware API](http://{host}/api/{version}).
 
 **Please note: This module uses [Popsicle](https://github.com/blakeembrey/popsicle) to make API requests. Promises must be supported or polyfilled on all target environments.**
 
 ## Installation
 
 ```
-npm install zeta-middleware-api-v1 --save
-bower install zeta-middleware-api-v1 --save
+npm install zeta-middleware-api --save
+bower install zeta-middleware-api --save
 ```
 
 ## Usage
@@ -16,18 +16,18 @@ bower install zeta-middleware-api-v1 --save
 ### Node
 
 ```javascript
-var ZetaMiddlewareApiV1 = require('zeta-middleware-api-v1');
+var ZetaMiddlewareApi = require('zeta-middleware-api');
 
-var client = new ZetaMiddlewareApiV1();
+var client = new ZetaMiddlewareApi();
 ```
 
 ### Browsers
 
 ```html
-<script src="zeta-middleware-api-v1/index.js"></script>
+<script src="zeta-middleware-api/index.js"></script>
 
 <script>
-  var client = new ZetaMiddlewareApiV1();
+  var client = new ZetaMiddlewareApi();
 </script>
 ```
 
@@ -36,7 +36,7 @@ var client = new ZetaMiddlewareApiV1();
 You can set options when you initialize a client or at any time with the `options` property. You may also override options for a single request by passing an object as the second argument of any request method. For example:
 
 ```javascript
-var client = new ZetaMiddlewareApiV1({ ... });
+var client = new ZetaMiddlewareApi({ ... });
 
 client.options = { ... };
 
@@ -53,7 +53,7 @@ client.resource('/').get(null, {
 You can override the base URI by setting the `baseUri` property, or initializing a client with a base URI. For example:
 
 ```javascript
-new ZetaMiddlewareApiV1({
+new ZetaMiddlewareApi({
   baseUri: 'https://example.com'
 });
 ```
@@ -70,10 +70,10 @@ client.options.baseUriParameters.version = 'v1';
 
 All methods return a HTTP request instance of [Popsicle](https://github.com/blakeembrey/popsicle), which allows the use of promises (and streaming in node).
 
-#### resources.resources.schema
+#### resources.entities.schema
 
 ```js
-var resource = client.resources.resources.schema;
+var resource = client.resources.entities.schema;
 ```
 
 ##### GET
@@ -94,14 +94,14 @@ resource.get({ ... });
 
 Este recurso possui metadados adicionais que pode ser solicitados sob demanda. O parâmetro **extended** define o modo com que os metadados contidos no recurso em questão serão apresentados. O valor padrão de **extended** é *false*, apresentado os metadados em sua representação simples. Para uma representação detalhada o parâmetro deve ser ajustado para *true*.
 
-#### resources.resources.schema.name(name)
+#### resources.entities.schema.name(name)
 
 * **name** _string_
 
 Nome do **recurso** a ser descrito.
 
 ```js
-var resource = client.resources.resources.schema.name(name);
+var resource = client.resources.entities.schema.name(name);
 ```
 
 ##### GET
@@ -122,14 +122,14 @@ resource.get({ ... });
 
 Este recurso possui metadados adicionais que pode ser solicitados sob demanda. O parâmetro **extended** define o modo com que os metadados contidos no recurso em questão serão apresentados. O valor padrão de **extended** é *false*, apresentado os metadados em sua representação simples. Para uma representação detalhada o parâmetro deve ser ajustado para *true*.
 
-#### resources.resources.name(name)
+#### resources.entities.name(name)
 
 * **name** _string_
 
 Nome do **tipo de recurso** sobre o qual a operação será executada. Apenas tipos listados no **_endpoint_** */resources/schema* serão aceitos.
 
 ```js
-var resource = client.resources.resources.name(name);
+var resource = client.resources.entities.name(name);
 ```
 
 ##### GET
@@ -174,14 +174,14 @@ resource.post().then(function (res) { ... });
 
 **application/json**
 
-#### resources.resources.name(name).id(id)
+#### resources.entities.name(name).id(id)
 
 * **id** _string_
 
 **Identificador único** do **recurso** sobre o qual a operação será executada. Apenas recursos listados no **_endpoint_** */resources/schema* serão aceitos.
 
 ```js
-var resource = client.resources.resources.name(name).id(id);
+var resource = client.resources.entities.name(name).id(id);
 ```
 
 ##### GET
@@ -234,10 +234,10 @@ resource.put().then(function (res) { ... });
 
 **application/json**
 
-#### resources.resources.search
+#### resources.entities.search
 
 ```js
-var resource = client.resources.resources.search;
+var resource = client.resources.entities.search;
 ```
 
 ##### GET

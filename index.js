@@ -4,7 +4,7 @@
   } else if (typeof exports === 'object') {
     module.exports = client(require('popsicle'))
   } else {
-    root.ZetaMiddlewareApiV1 = client(root.popsicle)
+    root.ZetaMiddlewareApi = client(root.popsicle)
   }
 })(this, function (popsicle) {
   var TEMPLATE_REGEXP = /\{([^\{\}]+)\}/g
@@ -76,7 +76,7 @@
     this._uri = uri
     this._client = client
 
-    this.resources = new Resource1(uri + '/resources', client)
+    this.entities = new Resource1(uri + '/entities', client)
     this.health = new Resource7(uri + '/health', client)
     this.artifacts = new Resource8(uri + '/artifacts', client)
   }
@@ -290,8 +290,8 @@
 
   function Client (options) {
     this.options = extend({
-      baseUri: 'http://{host}/api',
-      baseUriParameters: {host:undefined}
+      baseUri: 'http://{host}/api/{version}',
+      baseUriParameters: {host:undefined,version:'v1'}
     }, options)
 
     this.resources = new Resource0('', this)
