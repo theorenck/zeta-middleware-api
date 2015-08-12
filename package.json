@@ -1,6 +1,6 @@
 {
   "name": "zeta-middleware-api",
-  "version": "0.0.0",
+  "version": "0.9.0",
   "description": "",
   "main": "index.js",
   "files": [
@@ -8,18 +8,21 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/mulesoft/raml-javascript-generator.git"
+    "url": "git://github.com/zeta-labs/zeta-middleware-api.git"
   },
   "keywords": [
-    "raml-api"
+    "zeta",
+    "middleware",
+    "client",
+    "API"
   ],
-  "author": "MuleSoft, Inc.",
-  "license": "Apache 2.0",
+  "author": "Theo Renck <carlos.renck@zeta.com.br>",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mulesoft/raml-javascript-generator/issues"
+    "url": "https://github.com/zeta-labs/zeta-middleware-api/issues"
   },
-  "homepage": "https://github.com/mulesoft/raml-javascript-generator",
+  "homepage": "https://github.com/zeta-labs/zeta-middleware-api",
   "dependencies": {
-    "popsicle": "^0.5.6"
+    "popsicle": "^1.0.0"
   }
 }
